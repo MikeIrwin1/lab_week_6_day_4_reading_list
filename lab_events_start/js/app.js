@@ -7,52 +7,20 @@ form.addEventListener('submit', handleFormSubmit);
 
 });
 
-  const handleFormSubmit = function (event) {
-    event.preventDefault();
-    console.log(event);
+const handleFormSubmit = function (event) {
+  event.preventDefault();
+  const list = document.querySelector('#reading-list');
 
-// create table and add table
-  // const newTableItem = document.createElement('table');
-  const list = document.querySelector('ul')
-
-  const listItem = document.createElement('li')
-  listItem.textContent = `${event.target.title.value}`;
-  list.appendChild(listItem)
-
-  const listItem2 = document.createElement('li')
-  listItem2.textContent = `${event.target.author.value}`;
-  list.appendChild(listItem2)
-
-  const listItem3 = document.createElement('li')
-  listItem3.textContent = `${event.target.category.value}`;
-  list.appendChild(listItem3)
+// create table and rows. Save to list.
+  const newTableItem = document.createElement('table');
+  const title = newTableItem.insertRow(-1);
+  const author = newTableItem.insertRow(-1);
+  const category = newTableItem.insertRow(-1);
+  list.appendChild(newTableItem);
+// set the content of each row
+  title.textContent = `Title: ${event.target.title.value}`;
+  author.textContent = `Author: ${event.target.author.value}`;
+  category.textContent = `Category: ${event.target.category.value}`;
+// reset form
   document.getElementById('new-item-form').reset();
-
-
-
-
-
-  // list.appendChild(newTableItem);
-  //
-  // // create and add row
-  // const newRow = document.createElement('tr');
-  // newTableItem.appendChild(newRow);
-  //
-  //
-  // const newTitle = document.createElement('td');
-  // newTitle.textContent = `${event.target.title.value}`;
-  // newRow.appendChild(newTitle);
-  // console.dir(table);
-  //
-  // const author = document.createElement('td');
-  // author.textContent = `${event.target.author.value}`;
-  // newRow.appendChild(author);
-
-
-
-//  newTableItem.appendChild(newRow);
-  //newTableItem.textContent = ``
-
-
-
   }
